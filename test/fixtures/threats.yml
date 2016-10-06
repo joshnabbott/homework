@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-10-06
+  all_total: 1
+  all_uniques: 1
+  ips_total: 1
+  ips_uniques: 1
+  files_total: 1
+  files_uniques: 1
+  domains_total: 1
+  domains_uniques: 1
+  urls_total: 1
+  urls_uniques: 1
+
+two:
+  date: 2016-10-06
+  all_total: 1
+  all_uniques: 1
+  ips_total: 1
+  ips_uniques: 1
+  files_total: 1
+  files_uniques: 1
+  domains_total: 1
+  domains_uniques: 1
+  urls_total: 1
+  urls_uniques: 1
