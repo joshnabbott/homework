@@ -23,7 +23,6 @@
     @setState "#{ name }": e.target.value
 
   handleSubmit: (e) ->
-    console.log @state
     e.preventDefault()
     that = this
     $.ajax '/threats/filter',
@@ -35,8 +34,6 @@
 
   resetFilters: (e) ->
     @replaceState @getInitialState()
-    console.log @state
-    console.log 'reset everything to blank'
 
   render: ->
     React.DOM.div
