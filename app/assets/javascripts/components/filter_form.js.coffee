@@ -2,16 +2,16 @@
   getInitialState: ->
     date_filter: ''
     averages_filter: {
-      'all_total': 'false',
-      'all_uniques': 'false',
-      'ips_total': 'false',
-      'ips_uniques': 'false',
-      'files_total': 'false',
-      'files_uniques': 'false',
-      'domains_total': 'false',
-      'domains_uniques': 'false',
-      'urls_total': 'false',
-      'urls_uniques': 'false',
+      all_total: 'false',
+      all_uniques: 'false',
+      ips_total: 'false',
+      ips_uniques: 'false',
+      files_total: 'false',
+      files_uniques: 'false',
+      domains_total: 'false',
+      domains_uniques: 'false',
+      urls_total: 'false',
+      urls_uniques: 'false',
     }
 
   handleCheckedChange: (e) ->
@@ -40,11 +40,10 @@
 
   render: ->
     React.DOM.div
-      className: 'jumbotron'
-      React.DOM.h1
-        'Filter records'
+      className: 'well'
+      React.DOM.h3 null, 'Filter records'
       React.DOM.form
-        className: 'form-inline'
+        className: 'form form-inline'
         onSubmit: @handleSubmit
         React.DOM.div
           className: 'form-group'
