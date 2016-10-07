@@ -2,10 +2,7 @@ class ThreatsController < ApplicationController
   def index
     @threats = find_threats
 
-    respond_to do |format|
-      format.html { render component: 'Threats', props: { threats: @threats } }
-      format.json { render json: @threats }
-    end
+    render component: 'Threats', props: { threats: @threats }
   end
 
   def filter

@@ -5,7 +5,7 @@
   handleFilter30: (e) ->
     e.preventDefault()
     that = this
-    $.ajax '?date_filter=30',
+    $.ajax '/threats/filter?date_filter=30',
       type: 'GET'
       dataType: 'JSON'
       success: (data) ->
@@ -14,7 +14,7 @@
   handleFilter60: (e) ->
     e.preventDefault()
     that = this
-    $.ajax '?date_filter=60',
+    $.ajax '/threats/filter?date_filter=60',
       type: 'GET'
       dataType: 'JSON'
       success: (data) ->
@@ -23,11 +23,14 @@
   handleFilter60: (e) ->
     e.preventDefault()
     that = this
-    $.ajax '?date_filter=90',
+    $.ajax '/threats/filter?date_filter=90',
       type: 'GET'
       dataType: 'JSON'
       success: (data) ->
         that.replaceState threats: data
+
+  handleFiltered: (threats) ->
+    @replaceState threats: threats
 
   render: ->
     React.DOM.div
@@ -41,24 +44,9 @@
           React.DOM.tr null,
             React.DOM.th null,
               'Date'
-              React.DOM.a
-                href: '#'
-                onClick: @handleFilter30
-                React.DOM.span
-                  className: 'label label-default'
-                  '30'
-              React.DOM.a
-                href: '#'
-                onClick: @handleFilter60
-                React.DOM.span
-                  className: 'label label-warning'
-                  '60'
-              React.DOM.a
-                href: '#'
-                onClick: @handleFilter90
-                React.DOM.span
-                  className: 'label label-danger'
-                  '90'
+              React.createElement DateFilter, name: '30', filter_num: 30, handleDateFilter: @handleFiltered
+              React.createElement DateFilter, name: '60', filter_num: 60, handleDateFilter: @handleFiltered
+              React.createElement DateFilter, name: '90', filter_num: 90, handleDateFilter: @handleFiltered
             React.DOM.th null, 'All total'
             React.DOM.th null, 'All uniques'
             React.DOM.th null, 'IPs total'
