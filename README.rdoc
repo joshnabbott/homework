@@ -4,7 +4,7 @@ Dependencies: Ruby 2.0, Rails 4, SQLite
 
 * Clone the repository
 
-* Drop threats.csv into /lib
+* Drop threats.csv into /db/ 
 
 * Create the database bundle exec rake db:create
 
