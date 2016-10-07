@@ -12,10 +12,12 @@ class ThreatsController < ApplicationController
 
   private
   def find_threats
-    if params[:date_filter].present?
-      Threat.where("date > ?", "#{ params[:date_filter] }".to_i.days.ago)
-    else
-      Threat.all
+    threats = Threat.all
+    threats = threats.where("date > ?", "#{ params[:date_filter] }".to_i.days.ago) if params[:date_filter].present?
+    params.fetch(:averages_filter, {}).each do |key, value|
+      next if value === 'false'
+      threats = threats.where("#{ key.to_s } > ?", Threat.average(key.to_sym).to_i)
     end
+    threats
   end
 end
