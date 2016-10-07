@@ -1,28 +1,15 @@
-== README
+== Running it locally
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dependencies: Ruby 2.0, Rails 4, SQLite
 
-Things you may want to cover:
+* Clone the repository
 
-* Ruby version
+* Drop threats.csv into /lib
 
-* System dependencies
+* Create the database bundle exec rake db:create
 
-* Configuration
+* Setup and bootstrap database: bundle exec rake db:migrate db:seed
 
-* Database creation
+* Start the server: rails s
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Visit localhost:3000/threats
