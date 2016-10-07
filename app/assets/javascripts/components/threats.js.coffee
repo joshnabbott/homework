@@ -35,18 +35,16 @@
   render: ->
     React.DOM.div
       className: 'threats'
+      React.createElement FilterForm, handleApplyFilters: @handleFiltered
       React.DOM.h2
         className: 'title'
         'Threats'
       React.DOM.table
-        className: 'table table-bordered'
+        className: 'table table-bordered table-striped'
         React.DOM.thead null,
           React.DOM.tr null,
             React.DOM.th null,
               'Date'
-              React.createElement DateFilter, name: '30', filter_num: 30, handleDateFilter: @handleFiltered
-              React.createElement DateFilter, name: '60', filter_num: 60, handleDateFilter: @handleFiltered
-              React.createElement DateFilter, name: '90', filter_num: 90, handleDateFilter: @handleFiltered
             React.DOM.th null, 'All total'
             React.DOM.th null, 'All uniques'
             React.DOM.th null, 'IPs total'
