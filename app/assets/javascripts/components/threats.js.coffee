@@ -2,33 +2,6 @@
   getInitialState: ->
     threats: @props.threats
 
-  handleFilter30: (e) ->
-    e.preventDefault()
-    that = this
-    $.ajax '/threats/filter?date_filter=30',
-      type: 'GET'
-      dataType: 'JSON'
-      success: (data) ->
-        that.replaceState threats: data
-
-  handleFilter60: (e) ->
-    e.preventDefault()
-    that = this
-    $.ajax '/threats/filter?date_filter=60',
-      type: 'GET'
-      dataType: 'JSON'
-      success: (data) ->
-        that.replaceState threats: data
-
-  handleFilter60: (e) ->
-    e.preventDefault()
-    that = this
-    $.ajax '/threats/filter?date_filter=90',
-      type: 'GET'
-      dataType: 'JSON'
-      success: (data) ->
-        that.replaceState threats: data
-
   handleFiltered: (threats) ->
     @replaceState threats: threats
 

@@ -2,25 +2,23 @@
   getInitialState: ->
     date_filter: ''
     averages_filter: {
-      all_total: 'false',
-      all_uniques: 'false',
-      ips_total: 'false',
-      ips_uniques: 'false',
-      files_total: 'false',
-      files_uniques: 'false',
-      domains_total: 'false',
-      domains_uniques: 'false',
-      urls_total: 'false',
-      urls_uniques: 'false',
+      all_total: false,
+      all_uniques: false,
+      ips_total: false,
+      ips_uniques: false,
+      files_total: false,
+      files_uniques: false,
+      domains_total: false,
+      domains_uniques: false,
+      urls_total: false,
+      urls_uniques: false,
     }
 
   handleCheckedChange: (e) ->
-    name = e.target.name
-    @setState "averages_filter[#{ name }]": e.target.checked
+    @setState React.addons.update @state, averages_filter: { "#{ e.target.name }": { $set: e.target.checked } }
 
   handleValueChange: (e) ->
-    name = e.target.name
-    @setState "#{ name }": e.target.value
+    @setState "#{ e.target.name }": e.target.value
 
   handleSubmit: (e) ->
     e.preventDefault()
@@ -82,6 +80,7 @@
               type: 'checkbox'
               className: 'form-control'
               name: 'all_total'
+              checked: @state.averages_filter.all_total
               onChange: @handleCheckedChange
         React.DOM.div
           className: 'form-group'
@@ -90,6 +89,7 @@
               type: 'checkbox'
               className: 'form-control'
               name: 'all_uniques'
+              checked: @state.averages_filter.all_uniques
               onChange: @handleCheckedChange
         React.DOM.div
           className: 'form-group'
@@ -98,6 +98,7 @@
               type: 'checkbox'
               className: 'form-control'
               name: 'ips_total'
+              checked: @state.averages_filter.ips_total
               onChange: @handleCheckedChange
         React.DOM.div
           className: 'form-group'
@@ -106,6 +107,7 @@
               type: 'checkbox'
               className: 'form-control'
               name: 'ips_uniques'
+              checked: @state.averages_filter.ips_uniques
               onChange: @handleCheckedChange
         React.DOM.div
           className: 'form-group'
@@ -114,6 +116,7 @@
               type: 'checkbox'
               className: 'form-control'
               name: 'files_total'
+              checked: @state.averages_filter.files_total
               onChange: @handleCheckedChange
         React.DOM.div
           className: 'form-group'
@@ -122,8 +125,13 @@
               type: 'checkbox'
               className: 'form-control'
               name: 'files_uniques'
+              checked: @state.averages_filter.files_uniques
               onChange: @handleCheckedChange
         React.DOM.button
           type: 'submit'
           className: 'btn btn-primary'
           'Filter records'
+      React.DOM.a
+        className: 'btn btn-default btn-xs'
+        onClick: @resetFilters
+        'Reset filters'
