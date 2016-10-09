@@ -18,8 +18,7 @@
     @setState React.addons.update @state, averages_filter: { "#{ e.target.name }": { $set: e.target.checked } }
 
   handleValueChange: (e) ->
-    name = e.target.name
-    @setState "#{ name }": e.target.value
+    @setState "#{ e.target.name }": e.target.value
 
   handleSubmit: (e) ->
     e.preventDefault()
@@ -132,7 +131,7 @@
           type: 'submit'
           className: 'btn btn-primary'
           'Filter records'
-        React.DOM.a
-          className: 'btn btn-default btn-xs'
-          onClick: @resetFilters
-          'Reset filters'
+      React.DOM.a
+        className: 'btn btn-default btn-xs'
+        onClick: @resetFilters
+        'Reset filters'
